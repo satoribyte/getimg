@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maze Game</title>
+  <meta name="title" content="Maze Game" />
+  <meta name="description" content="" />
+    <meta property="og:image" content="https://i.ibb.co/j3LcByw/images.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/j3LcByw/images.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #fff;
+    }
+
+    #cvs {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #efefef;
+      //display:none;
+    }
+
+    .btn {
+      width: 100px;
+      height: 45px;
+      background: rgba(0, 0, 0, 0.3);
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      position: fixed;
+      margin: auto;
+      bottom: 0px;
+      left: 0;
+      right: 0;
+    }
+
+    .u {
+      bottom: 50px;
+    }
+
+    .l {
+      transform: translateX(-110px) translateY(-25px);
+    }
+
+    .r {
+      transform: translateX(110px) translateY(-25px);
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="cvs"></canvas>
+  <button class="btn u" onclick="up()">Up</button>
+  <button class="btn l" onclick="left()">Left</button>
+  <button class="btn r" onclick="right()">Right</button>
+  <button class="btn d" onclick="down()">Down</button>
+
+  <script>
+    var _0x19b1 = ["\x6C\x65\x6E\x67\x74\x68", "\x72\x61\x6E\x64\x6F\x6D", "\x66\x6C\x6F\x6F\x72", "\x79", "\x78", "\x6D\x61\x70", "\x75", "\x64", "\x6C", "\x72", "\x6F\x6E\x6C\x6F\x61\x64", "\x63\x76\x73", "\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64", "\x77\x69\x64\x74\x68", "\x68\x65\x69\x67\x68\x74", "\x32\x64", "\x67\x65\x74\x43\x6F\x6E\x74\x65\x78\x74", "\x73\x65\x74\x4C\x69\x6E\x65\x44\x61\x73\x68", "\x67\x65\x6E\x65\x72\x61\x74\x65\x4D\x61\x70", "\x61\x70\x70\x6C\x79\x4D\x61\x7A\x65\x41\x6C\x67\x6F", "\x72\x61\x6E\x64\x6F\x6D\x69\x73\x65\x43\x6F\x72\x64\x73", "\x70\x6C\x61\x79\x65\x72\x43\x6F\x72\x64", "\x72\x65\x64", "\x67\x65\x74\x4D\x61\x7A\x65", "\x74\x61\x72\x67\x65\x74\x43\x6F\x72\x64", "\x23\x30\x30\x30", "\x63\x65\x6C\x6C\x53\x69\x7A\x65", "\x6D\x61\x7A\x65", "\x63\x6C\x65\x61\x72\x52\x65\x63\x74", "\x64\x72\x61\x77\x4D\x61\x7A\x65", "\x64\x72\x61\x77", "\x66\x69\x6C\x6C\x53\x74\x79\x6C\x65", "\x66\x69\x6C\x6C\x52\x65\x63\x74", "\x23\x66\x66\x66", "\x66\x6F\x6E\x74", "\x32\x35\x70\x78\x20\x62\x6F\x6C\x64", "\x59\x6F\x75\x20\x57\x6F\x6E", "\x66\x69\x6C\x6C\x54\x65\x78\x74", "\x73\x74\x72\x6F\x6B\x65\x53\x74\x79\x6C\x65", "\x62\x65\x67\x69\x6E\x50\x61\x74\x68", "\x6D\x6F\x76\x65\x54\x6F", "\x6C\x69\x6E\x65\x54\x6F", "\x63\x6C\x6F\x73\x65\x50\x61\x74\x68", "\x73\x74\x72\x6F\x6B\x65", "\x32\x30\x70\x78\x20\x62\x6F\x6C\x64", "\x52\x65\x73\x74\x61\x72\x74", "\x6F\x6E\x63\x6C\x69\x63\x6B", "\x64\x69\x72\x73", "\x63\x6F\x6D\x70\x6C\x65\x74\x65\x64", "\x6D\x6F\x76\x65", "\x76\x69\x73\x69\x74\x65\x64\x43\x65\x6C\x6C\x73", "\x6E\x75\x6D\x52\x75\x6E\x73", "\x6D\x61\x78\x52\x75\x6E\x73", "\x6E\x75\x6D\x43\x65\x6C\x6C\x73", "\x70\x6F\x73", "\x70\x44\x69\x72", "\x70\x6C\x61\x79\x65\x72\x50\x6F\x73", "\x74\x61\x72\x67\x65\x74\x50\x6F\x73", "\x6C\x69\x6E\x65\x57\x69\x64\x74\x68", "\x76\x69\x73\x69\x74\x65\x64", "\x72\x6F\x75\x6E\x64", "\x6F\x70\x70", "\x70\x72\x69\x6F\x72\x50\x6F\x73", "\x77", "\x68", "\x63\x6F\x6C", "\x6E\x78", "\x73\x78"];
+    let cvs, ctx, w, h;
+    let cells = innerWidth / 20;
+    let maze, player, target, gameOver = false;
+    const { random, floor } = Math;
+    const shuffle = (_0xf717xb) => {
+      var _0xf717xc = _0xf717xb[_0x19b1[0]],
+        _0xf717xd, _0xf717xe;
+      while (0 !== _0xf717xc) {
+        _0xf717xe = Math[_0x19b1[2]](Math[_0x19b1[1]]() * _0xf717xc);
+        _0xf717xc--;
+        _0xf717xd = _0xf717xb[_0xf717xc];
+        _0xf717xb[_0xf717xc] = _0xf717xb[_0xf717xe];
+        _0xf717xb[_0xf717xe] = _0xf717xd
+      };
+      return _0xf717xb
+    };
+    const rand = (_0xf717x10) => { return floor(random() * _0xf717x10) };
+    const up = () => { let _0xf717x12 = player[_0x19b1[5]][player[_0x19b1[4]]][player[_0x19b1[3]]]; if (_0xf717x12[_0x19b1[6]]) { player[_0x19b1[3]]-- } };
+    const down = () => { let _0xf717x12 = player[_0x19b1[5]][player[_0x19b1[4]]][player[_0x19b1[3]]]; if (_0xf717x12[_0x19b1[7]]) { player[_0x19b1[3]]++ } };
+    const left = () => { let _0xf717x12 = player[_0x19b1[5]][player[_0x19b1[4]]][player[_0x19b1[3]]]; if (_0xf717x12[_0x19b1[8]]) { player[_0x19b1[4]]-- } };
+    const right = () => { let _0xf717x12 = player[_0x19b1[5]][player[_0x19b1[4]]][player[_0x19b1[3]]]; if (_0xf717x12[_0x19b1[9]]) { player[_0x19b1[4]]++ } };
+    window[_0x19b1[10]] = () => {
+      cvs = document[_0x19b1[12]](_0x19b1[11]);
+      w = cvs[_0x19b1[13]] = cells * 18;
+      h = cvs[_0x19b1[14]] = cells * 18;
+      ctx = cvs[_0x19b1[16]](_0x19b1[15]);
+      ctx[_0x19b1[17]]([5, 4]);
+      maze = new Maze();
+      maze[_0x19b1[18]]();
+      maze[_0x19b1[19]]();
+      maze[_0x19b1[20]]();
+      player = new Player(maze[_0x19b1[21]][_0x19b1[4]], maze[_0x19b1[21]][_0x19b1[3]], _0x19b1[22], maze[_0x19b1[23]]());
+      target = new Player(maze[_0x19b1[24]][_0x19b1[4]], maze[_0x19b1[24]][_0x19b1[3]], _0x19b1[25]);
+      requestAnimationFrame(update)
+    };
+    const update = () => {
+      requestAnimationFrame(update);
+      if (!gameOver) {
+        var _0xf717x17 = maze[_0x19b1[26]] * maze[_0x19b1[27]][_0x19b1[0]];
+        ctx[_0x19b1[28]](0, 0, _0xf717x17, _0xf717x17);
+        maze[_0x19b1[29]](cells);
+        player[_0x19b1[30]]();
+        target[_0x19b1[30]]()
+      };
+      if (player[_0x19b1[4]] == target[_0x19b1[4]] && player[_0x19b1[3]] == target[_0x19b1[3]]) { gameOver = true };
+      if (gameOver) {
+        ctx[_0x19b1[31]] = _0x19b1[25];
+        ctx[_0x19b1[32]](0, 0, w, h);
+        ctx[_0x19b1[31]] = _0x19b1[33];
+        ctx[_0x19b1[34]] = _0x19b1[35];
+        ctx[_0x19b1[37]](_0x19b1[36], w / 2 - 50, h / 2);
+        ctx[_0x19b1[38]] = _0x19b1[33];
+        ctx[_0x19b1[39]]();
+        ctx[_0x19b1[40]](0, h - 70);
+        ctx[_0x19b1[41]](w, h - 70);
+        ctx[_0x19b1[42]]();
+        ctx[_0x19b1[43]]();
+        ctx[_0x19b1[34]] = _0x19b1[44];
+        ctx[_0x19b1[37]](_0x19b1[45], w / 2 - 40, h - 35);
+        window[_0x19b1[46]] = () => { if (gameOver) { restart() } }
+      }
+    };
+    const restart = () => {
+      gameOver = false;
+      maze = new Maze();
+      maze[_0x19b1[18]]();
+      maze[_0x19b1[19]]();
+      maze[_0x19b1[20]]();
+      player = new Player(maze[_0x19b1[21]][_0x19b1[4]], maze[_0x19b1[21]][_0x19b1[3]], _0x19b1[22], maze[_0x19b1[23]]());
+      target = new Player(maze[_0x19b1[24]][_0x19b1[4]], maze[_0x19b1[24]][_0x19b1[3]], _0x19b1[25])
+    };
+    class Maze {
+      constructor() {
+        this[_0x19b1[27]] = [];
+        this[_0x19b1[13]] = cells;
+        this[_0x19b1[14]] = cells;
+        this[_0x19b1[26]] = w / cells;
+        this[_0x19b1[47]] = [_0x19b1[6], _0x19b1[7], _0x19b1[9], _0x19b1[8]];
+        this[_0x19b1[48]] = false;
+        this[_0x19b1[49]] = false;
+        this[_0x19b1[50]] = 1;
+        this[_0x19b1[51]] = 0;
+        this[_0x19b1[52]] = 0;
+        this[_0x19b1[53]] = this[_0x19b1[13]] * this[_0x19b1[14]];
+        this[_0x19b1[54]] = { x: 0, y: 0 };
+        this[_0x19b1[21]] = { x: null, y: null };
+        this[_0x19b1[24]] = { x: null, y: null };
+        this[_0x19b1[55]] = { u: { y: -1, x: 0, opp: _0x19b1[7] }, d: { y: 1, x: 0, opp: _0x19b1[6] }, r: { y: 0, x: 1, opp: _0x19b1[8] }, l: { y: 0, x: -1, opp: _0x19b1[9] } };
+        this[_0x19b1[56]] = [{ x: 0, y: 0 }, { x: 0, y: this[_0x19b1[13]] - 1 }, { x: this[_0x19b1[14]] - 1, y: 0 }, { x: this[_0x19b1[14]] - 1, y: this[_0x19b1[13]] - 1 }];
+        this[_0x19b1[57]] = [{ x: this[_0x19b1[14]] - 1, y: this[_0x19b1[13]] - 1 }, { x: this[_0x19b1[14]] - 1, y: 0 }, { x: 0, y: this[_0x19b1[13]] - 1 }, { x: 0, y: 0 }]
+      }
+      generateMap() { this[_0x19b1[27]] = []; for (let _0xf717x1b = 0; _0xf717x1b < this[_0x19b1[14]]; _0xf717x1b++) { this[_0x19b1[27]][_0xf717x1b] = []; for (let _0xf717x1c = 0; _0xf717x1c < this[_0x19b1[13]]; ++_0xf717x1c) { this[_0x19b1[27]][_0xf717x1b][_0xf717x1c] = { u: false, d: false, r: false, l: false, visited: false, priorPos: null } } } } randomiseCords() {
+        let _0xf717x1e = rand(4);
+        this[_0x19b1[21]] = this[_0x19b1[56]][_0xf717x1e];
+        this[_0x19b1[24]] = this[_0x19b1[57]][_0xf717x1e]
+      }
+      drawMaze(_0xf717x20) {
+        this[_0x19b1[26]] = _0xf717x20;
+        ctx[_0x19b1[58]] = this[_0x19b1[26]] / 60;
+        ctx[_0x19b1[38]] = _0x19b1[25];
+        for (let _0xf717x21 = 0; _0xf717x21 < this[_0x19b1[27]][_0x19b1[0]]; _0xf717x21++) {
+          for (let _0xf717x22 = 0; _0xf717x22 < this[_0x19b1[27]][_0xf717x21][_0x19b1[0]]; _0xf717x22++) {
+            if (this[_0x19b1[27]][_0xf717x21][_0xf717x22][_0x19b1[6]] == false) {
+              ctx[_0x19b1[39]]();
+              ctx[_0x19b1[40]](_0xf717x21 * this[_0x19b1[26]], _0xf717x22 * this[_0x19b1[26]]);
+              ctx[_0x19b1[41]](_0xf717x21 * this[_0x19b1[26]] + this[_0x19b1[26]], _0xf717x22 * this[_0x19b1[26]]);
+              ctx[_0x19b1[43]]()
+            };
+            if (this[_0x19b1[27]][_0xf717x21][_0xf717x22][_0x19b1[7]] === false) {
+              ctx[_0x19b1[39]]();
+              ctx[_0x19b1[40]](_0xf717x21 * this[_0x19b1[26]], _0xf717x22 * this[_0x19b1[26]] + this[_0x19b1[26]]);
+              ctx[_0x19b1[41]](_0xf717x21 * this[_0x19b1[26]] + this[_0x19b1[26]], _0xf717x22 * this[_0x19b1[26]] + this[_0x19b1[26]]);
+              ctx[_0x19b1[43]]()
+            };
+            if (this[_0x19b1[27]][_0xf717x21][_0xf717x22][_0x19b1[9]] === false) {
+              ctx[_0x19b1[39]]();
+              ctx[_0x19b1[40]](_0xf717x21 * this[_0x19b1[26]] + this[_0x19b1[26]], _0xf717x22 * this[_0x19b1[26]]);
+              ctx[_0x19b1[41]](_0xf717x21 * this[_0x19b1[26]] + this[_0x19b1[26]], _0xf717x22 * this[_0x19b1[26]] + this[_0x19b1[26]]);
+              ctx[_0x19b1[43]]()
+            };
+            if (this[_0x19b1[27]][_0xf717x21][_0xf717x22][_0x19b1[8]] === false) {
+              ctx[_0x19b1[39]]();
+              ctx[_0x19b1[40]](_0xf717x21 * this[_0x19b1[26]], _0xf717x22 * this[_0x19b1[26]]);
+              ctx[_0x19b1[41]](_0xf717x21 * this[_0x19b1[26]], _0xf717x22 * this[_0x19b1[26]] + this[_0x19b1[26]]);
+              ctx[_0x19b1[43]]()
+            }
+          }
+        }
+      }
+      applyMazeAlgo() {
+        while (!this[_0x19b1[48]]) {
+          this[_0x19b1[49]] = false;
+          this[_0x19b1[27]][this[_0x19b1[54]][_0x19b1[4]]][this[_0x19b1[54]][_0x19b1[3]]][_0x19b1[59]] = true;
+          if (this[_0x19b1[51]] >= this[_0x19b1[52]]) {
+            shuffle(this[_0x19b1[47]]);
+            this[_0x19b1[52]] = Math[_0x19b1[60]](this[_0x19b1[14]] / 8);
+            this[_0x19b1[51]] = 0
+          };
+          this[_0x19b1[51]]++;
+          for (let _0xf717x24 = 0; _0xf717x24 < this[_0x19b1[47]][_0x19b1[0]]; _0xf717x24++) {
+            let _0xf717x25 = this[_0x19b1[47]][_0xf717x24];
+            let _0xf717x26 = this[_0x19b1[54]][_0x19b1[4]] + this[_0x19b1[55]][_0xf717x25][_0x19b1[4]];
+            let _0xf717x27 = this[_0x19b1[54]][_0x19b1[3]] + this[_0x19b1[55]][_0xf717x25][_0x19b1[3]];
+            if (_0xf717x26 >= 0 && _0xf717x26 < this[_0x19b1[13]] && _0xf717x27 >= 0 && _0xf717x27 < this[_0x19b1[14]]) {
+              if (!this[_0x19b1[27]][_0xf717x26][_0xf717x27][_0x19b1[59]]) {
+                this[_0x19b1[27]][this[_0x19b1[54]][_0x19b1[4]]][this[_0x19b1[54]][_0x19b1[3]]][_0xf717x25] = true;
+                this[_0x19b1[27]][_0xf717x26][_0xf717x27][this[_0x19b1[55]][_0xf717x25][_0x19b1[61]]] = true;
+                this[_0x19b1[27]][_0xf717x26][_0xf717x27][_0x19b1[62]] = this[_0x19b1[54]];
+                this[_0x19b1[54]] = { x: _0xf717x26, y: _0xf717x27 };
+                this[_0x19b1[50]]++;
+                this[_0x19b1[49]] = true;
+                break
+              }
+            }
+          };
+          (!this[_0x19b1[49]]) && (this[_0x19b1[54]] = this[_0x19b1[27]][this[_0x19b1[54]][_0x19b1[4]]][this[_0x19b1[54]][_0x19b1[3]]][_0x19b1[62]]);
+          (this[_0x19b1[53]] == this[_0x19b1[50]]) && (this[_0x19b1[48]] = true)
+        }
+      }
+      getMaze() { return this[_0x19b1[27]] }
+    };
+    class Player {
+      constructor(_0xf717x1c, _0xf717x1b, _0xf717x29, _0xf717x2a) {
+        this[_0x19b1[4]] = _0xf717x1c;
+        this[_0x19b1[3]] = _0xf717x1b;
+        this[_0x19b1[63]] = cells;
+        this[_0x19b1[64]] = cells;
+        this[_0x19b1[65]] = _0xf717x29;
+        this[_0x19b1[5]] = _0xf717x2a;
+        this[_0x19b1[66]] = { x: null, y: null };
+        this[_0x19b1[67]] = { x: null, y: null }
+      }
+      draw() {
+        ctx[_0x19b1[31]] = this[_0x19b1[65]];
+        ctx[_0x19b1[32]](this[_0x19b1[4]] * cells + 2.5, this[_0x19b1[3]] * cells + 2.5, this[_0x19b1[63]] - 5, this[_0x19b1[64]] - 5)
+      }
+    }
+  </script>
+</body>
+
+</html>

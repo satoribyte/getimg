@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Birthday🥳</title>
+  <meta name="title" content="Happy Birthday 🥳" />
+  <meta name="description" content="Teruntuk dirimu, selamat ulang tahun 🥳" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/82tY75F/hbd.jpg">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="Happy birthday🥳" />
+  <meta property="og:title" content="Happy Birthday 🥳" />
+  <meta property="og:description" content="Teruntuk dirimu, selamat ulang tahun 🥳" />
+  <meta property="og:image" content="https://i.ibb.co/82tY75F/hbd.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://metatags.io" />
+  <meta property="twitter:title" content="Happy Birthday 🥳" />
+  <meta property="twitter:description" content="Teruntuk dirimu, selamat ulang tahun 🥳" />
+  <meta property="twitter:image" content="https://i.ibb.co/82tY75F/hbd.jpg" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    .container {
+      width: 100vw;
+      height: 100vh;
+      background-color: #fbd7d7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .popup input[type="text"] {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .popup button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .box {
+      width: 100%;
+      height: 30rem;
+      background-color: #fbd7d7;
+    }
+
+    .base {
+      width: 17rem;
+      height: 5rem;
+      background-color: lightpink;
+      border-radius: 100%;
+      margin: auto;
+      position: relative;
+      top: 18rem;
+    }
+
+    .white_bird {
+      width: 12rem;
+      height: 10rem;
+      background-color: #fff;
+      margin: auto;
+      border-radius: 10rem;
+      position: relative;
+      top: 5rem;
+    }
+
+    .eye_1,
+    .eye_2 {
+      width: 2.2rem;
+      height: 2.2rem;
+      background-image: linear-gradient(to top, #000 50%, #fff 50%);
+      border-radius: 100%;
+      position: relative;
+      top: 2.1rem;
+      left: 3.5rem;
+    }
+
+    .eye_2 {
+      top: -.1rem;
+      left: 6.5rem;
+    }
+
+    .eye_1::after,
+    .eye_2::after {
+      content: "";
+      width: 1.8rem;
+      height: 1.8rem;
+      background-color: #fff;
+      border-radius: 100%;
+      position: absolute;
+      top: .2rem;
+      left: .2rem;
+      z-index: 10;
+    }
+
+    .blushing,
+    .blushing::after {
+      width: .6rem;
+      height: .6rem;
+      background-color: #fbd7d7;
+      border-radius: 100%;
+      position: relative;
+      top: -.3rem;
+      left: 2.8rem;
+    }
+
+    .blushing::after {
+      content: "";
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 6rem;
+    }
+
+    .mouth {
+      width: 1rem;
+      height: 1rem;
+      background-image: linear-gradient(to top, #ec2029 50%, #fff 50%);
+      border-radius: 100%;
+      position: relative;
+      top: -.9rem;
+      left: 5.6rem;
+    }
+
+    .mouth::after {
+      content: "";
+      width: .7rem;
+      height: .7rem;
+      border-radius: 100%;
+      background-color: #fff;
+      position: absolute;
+      top: .15rem;
+      left: .15rem;
+      z-index: 10;
+    }
+
+    .flr_box,
+    .flr_box_2,
+    .flr_box_3,
+    .flr_box_4,
+    .flr_box_5,
+    .flr_box_6,
+    .flr_box_7 {
+      width: 3rem;
+      height: 3rem;
+      background-color: transparent;
+      margin: auto;
+      position: relative;
+      top: -6.5rem;
+      transform: rotate(20deg);
+      z-index: 10;
+    }
+
+    .flr_mid {
+      width: 1.2rem;
+      height: 1.2rem;
+      background-color: #ec2029;
+      border-radius: 100%;
+      position: absolute;
+      top: .9rem;
+      left: .9rem;
+      z-index: 10;
+    }
+
+    .flr_mid::after,
+    .flr_box_2 .flr_mid::after,
+    .flr_box_3 .flr_mid::after,
+    .flr_box_4 .flr_mid::after,
+    .flr_box_5 .flr_mid::after,
+    .flr_box_6 .flr_mid::after,
+    .flr_box_7 .flr_mid::after {
+      content: "";
+      width: .8rem;
+      height: .8rem;
+      background-color: #f7bbd5;
+      border-radius: 100%;
+      position: absolute;
+      top: .2rem;
+      left: .2rem;
+      z-index: 10;
+    }
+
+    .flr_patel_1,
+    .flr_patel_2 {
+      width: 1rem;
+      height: 1rem;
+      background-color: #f7bbd5;
+      border-radius: 100%;
+      position: relative;
+      top: .2rem;
+      left: 1rem;
+      z-index: 9;
+    }
+
+    .flr_patel_1::before,
+    .flr_patel_1::after,
+    .flr_patel_2::before,
+    .flr_patel_2::after {
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      background-color: #f7bbd5;
+      border-radius: 100%;
+      position: absolute;
+      top: .45rem;
+      left: -.7rem;
+      z-index: 9;
+    }
+
+    .flr_patel_1::after,
+    .flr_patel_2::after {
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      border-radius: 100%;
+      left: .7rem;
+    }
+
+    .flr_patel_2 {
+      top: .8rem;
+    }
+
+    .flr_patel_2::before {
+      top: -.35rem;
+      background-color: #f7bbd5;
+    }
+
+    .flr_patel_2::after {
+      top: -.35rem;
+    }
+
+    .ribbon_1,
+    .ribbon_2,
+    .ribbon_3,
+    .ribbon_4 {
+      width: 1.6rem;
+      height: .6rem;
+      border-radius: 0 .6rem .6rem 0;
+      background-color: #07a6aa;
+      transform: rotate(-50deg);
+      margin: auto;
+      position: relative;
+      top: -9rem;
+      left: 1rem;
+      z-index: 9;
+    }
+
+    .ribbon_2 {
+      transform: rotate(-5deg);
+      top: -9.2rem;
+      left: 1.2rem;
+    }
+
+    .ribbon_1::after,
+    .ribbon_2::after,
+    .ribbon_3::after,
+    .ribbon_4::after {
+      content: "";
+      width: 1.3rem;
+      height: .4rem;
+      background-image: linear-gradient(to top right, #fbd7d7 50%, #07a6aa 50%);
+      position: absolute;
+      z-index: 9;
+      top: .2rem;
+    }
+
+    /* Small bird */
+
+    .sm_bird {
+      width: 3rem;
+      height: 2.9rem;
+      background-color: #ec2029;
+      border-radius: 2.6rem;
+      margin: auto;
+      position: relative;
+      top: -1.5rem;
+      left: -4rem;
+      z-index: 10;
+    }
+
+    .sm_eye,
+    .sm_eye::after,
+    .md_eye,
+    .md_eye::after {
+      width: .4rem;
+      height: .4rem;
+      background-color: #fff;
+      border-radius: 100%;
+      position: relative;
+      top: .8rem;
+      left: 1rem;
+    }
+
+    .sm_eye::after,
+    .md_eye::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 1rem;
+      z-index: 10;
+    }
+
+    .sm_mouth {
+      width: .5rem;
+      height: .5rem;
+      border-radius: 100%;
+      background-image: linear-gradient(to top, white 50%, transparent 50%);
+      position: relative;
+      top: .75rem;
+      left: 1.45rem;
+    }
+
+    .ribbon_3 {
+      border-radius: .6rem 0 0 .6rem;
+      transform: rotate(45deg);
+      top: -4.6rem;
+      left: -5.5rem;
+      z-index: 9;
+    }
+
+    .ribbon_3::after {
+      content: "";
+      background-image: linear-gradient(to bottom right, #07a6aa 50%, #fbd7d7 50%);
+      top: .2rem;
+      left: .3rem;
+    }
+
+    /* Medium bird */
+
+    .md_bird {
+      width: 4rem;
+      height: 3.1rem;
+      background-color: #ec2029;
+      border-radius: 3.1rem;
+      margin: auto;
+      position: relative;
+      top: -5rem;
+      left: 4rem;
+      z-index: 10;
+    }
+
+    /* md_eye is defined in sm_eye at line 246 - 263 */
+
+    .md_mouth {
+      width: .7rem;
+      height: .7rem;
+      background-image: linear-gradient(to top, #fff 50%, #ec2029 50%);
+      border-radius: 100%;
+      position: relative;
+      top: .6rem;
+      left: 1.35rem;
+    }
+
+    .md_mouth::after {
+      content: "";
+      width: .4rem;
+      height: .4rem;
+      background-color: #ec2029;
+      border-radius: 100%;
+      position: absolute;
+      top: .15rem;
+      left: .15rem;
+      z-index: 10;
+    }
+
+    .ribbon_4 {
+      top: -8.7rem;
+      left: 4.8rem;
+    }
+
+    .ribbon_4::after {
+      background-image: linear-gradient(to top right, #fff 50%, #07a6aa 50%);
+    }
+
+    /* 2nd Flower */
+
+    .flr_box_2 {
+      top: -7.2rem;
+      left: -8rem;
+    }
+
+    .flr_box_2 .flr_mid {
+      background-color: #de0786;
+    }
+
+    .flr_box_2 .flr_mid::after {
+      background-color: #bed532;
+    }
+
+    .flr_box_2 .flr_patel_1,
+    .flr_box_2 .flr_patel_1::before,
+    .flr_box_2 .flr_patel_1::after,
+    .flr_box_2 .flr_patel_2::before,
+    .flr_box_2 .flr_patel_2::after,
+    .flr_box_2 .flr_patel_2 {
+      background-color: #941b6c;
+    }
+
+    /* 3rd Flower */
+
+    .flr_box_3 {
+      top: -8.5rem;
+      left: -5.3rem;
+    }
+
+    .flr_box_3 .flr_mid {
+      background-color: #ec2029;
+    }
+
+    .flr_box_3 .flr_mid::after {
+      background-color: #552b81;
+    }
+
+    .flr_box_3 .flr_patel_1,
+    .flr_box_3 .flr_patel_1::before,
+    .flr_box_3 .flr_patel_1::after,
+    .flr_box_3 .flr_patel_2::before,
+    .flr_box_3 .flr_patel_2::after,
+    .flr_box_3 .flr_patel_2 {
+      background-color: #f3b240;
+    }
+
+    /* 4th Flower */
+
+    .flr_box_4 {
+      top: -11rem;
+      left: -2rem;
+    }
+
+    .flr_box_4 .flr_mid {
+      background-color: #f1cdcd;
+    }
+
+    .flr_box_4 .flr_mid::after {
+      background-color: #261f63;
+    }
+
+    .flr_box_4 .flr_patel_1,
+    .flr_box_4 .flr_patel_1::before,
+    .flr_box_4 .flr_patel_1::after,
+    .flr_box_4 .flr_patel_2::before,
+    .flr_box_4 .flr_patel_2::after,
+    .flr_box_4 .flr_patel_2 {
+      background-color: #ed297b;
+    }
+
+    /* 5th Flower */
+
+    .flr_box_5 {
+      top: -14rem;
+      left: 1.4rem;
+    }
+
+    .flr_box_5 .flr_mid {
+      background-color: #ec2029;
+    }
+
+    .flr_box_5 .flr_mid::after {
+      background-color: #552b81;
+    }
+
+    .flr_box_5 .flr_patel_1,
+    .flr_box_5 .flr_patel_1::before,
+    .flr_box_5 .flr_patel_1::after,
+    .flr_box_5 .flr_patel_2::before,
+    .flr_box_5 .flr_patel_2::after,
+    .flr_box_5 .flr_patel_2 {
+      background-color: #2d3790;
+    }
+
+    /* 6th Flower */
+
+    .flr_box_6 {
+      top: -17.4rem;
+      left: 4.8rem;
+    }
+
+    .flr_box_6 .flr_mid {
+      background-color: #ed3a28;
+    }
+
+    .flr_box_6 .flr_mid::after {
+      background-color: #fff;
+    }
+
+    .flr_box_6 .flr_patel_1,
+    .flr_box_6 .flr_patel_1::before,
+    .flr_box_6 .flr_patel_1::after,
+    .flr_box_6 .flr_patel_2::before,
+    .flr_box_6 .flr_patel_2::after,
+    .flr_box_6 .flr_patel_2 {
+      background-color: #f8ef24;
+    }
+
+    /* 7th Flower */
+
+    .flr_box_7 {
+      top: -22rem;
+      left: 7.8rem;
+    }
+
+    .flr_box_7 .flr_mid {
+      background-color: #f7bbd5;
+    }
+
+    .flr_box_7 .flr_mid::after {
+      background-color: #552b81;
+    }
+
+    .flr_box_7 .flr_patel_1,
+    .flr_box_7 .flr_patel_1::before,
+    .flr_box_7 .flr_patel_1::after,
+    .flr_box_7 .flr_patel_2::before,
+    .flr_box_7 .flr_patel_2::after,
+    .flr_box_7 .flr_patel_2 {
+      background-color: #941b6c;
+    }
+
+    /* Heart */
+
+    .heart_container,
+    .heart_container_2,
+    .heart_container_3 {
+      width: 2.8rem;
+      height: 2.2rem;
+      background-color: transparent;
+      margin: auto;
+      position: relative;
+      top: -33rem;
+      left: 7rem;
+      animation: heart_1 3s infinite, opacity 1s 1;
+      animation-timing-function: ease-in-out;
+      animation-delay: 1s, 0s;
+    }
+
+    .heart_container_2,
+    .heart_container_3 {
+      width: 2.4rem;
+      height: 1.8rem;
+      top: -39rem;
+      left: -5rem;
+      animation: heart_3 3s infinite, opacity 3s 1;
+    }
+
+    .heart_container_3 {
+      top: -36rem;
+      left: -7.8rem;
+      animation: heart_2 3s infinite, opacity 6s 1;
+    }
+
+    .heart,
+    .heart::after,
+    .heart_container_2 .heart,
+    .heart_container_2 .heart::after,
+    .heart_container_3 .heart,
+    .heart_container_3 .heart::after {
+      width: 1.4rem;
+      height: .8rem;
+      background-color: #ec2029;
+      transform: rotate(45deg);
+      position: relative;
+      top: .6rem;
+      left: .5rem;
+      border-radius: .8rem .4rem .4rem .8rem;
+      opacity: .95;
+    }
+
+    .heart_container_2 .heart,
+    .heart_container_3 .heart {
+      width: 1rem;
+      height: .6rem;
+    }
+
+    .heart::after,
+    .heart_container_2 .heart::after,
+    .heart_container_3 .heart::after {
+      content: "";
+      transform: rotate(90deg);
+      border-radius: .8rem .4rem 0 .8rem;
+      position: absolute;
+      top: -.3rem;
+      left: .3rem;
+      z-index: 10;
+    }
+
+    .heart_container_2 .heart::after,
+    .heart_container_3 .heart::after {
+      width: 1rem;
+      height: .6rem;
+      top: -.2rem;
+      left: .2rem;
+    }
+
+    /* Heart animation */
+
+    @keyframes heart_1 {
+      0% {
+        transform: rotate(20deg);
+        opacity: 0;
+      }
+
+      50% {
+        transform: rotate(-20deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: rotate(20deg);
+        opacity: 0;
+        top: -37rem;
+      }
+    }
+
+    @keyframes heart_2 {
+      0% {
+        transform: rotate(20deg);
+        opacity: 0;
+      }
+
+      50% {
+        transform: rotate(-20deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: rotate(20deg);
+        opacity: 0;
+        top: -39rem;
+      }
+    }
+
+    @keyframes heart_3 {
+      0% {
+        transform: rotate(20deg);
+        opacity: 0;
+      }
+
+      50% {
+        transform: rotate(-20deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: rotate(20deg);
+        opacity: 0;
+        top: -41rem;
+      }
+    }
+
+    @keyframes opacity {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* Greatings */
+
+    .greet {
+      display: flex;
+      width: 100%;
+      height: auto;
+      background-color: transparent;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 8vh;
+    }
+
+    .text {
+      margin: 0;
+      font-size: 2.4rem;
+      font-family: 'Love Ya Like A Sister', cursive;
+      text-align: center;
+      font-weight: 900;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <input type="text" id="nameInput" placeholder="Masukkan nama">
+      <button onclick="saveName()">Next</button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="box">
+      <div class="base"></div>
+      <!-- White Bird -->
+      <div class="white_bird">
+        <div class="eye_1"></div>
+        <div class="eye_2"></div>
+        <div class="blushing"></div>
+        <div class="mouth"></div>
+      </div>
+      <!-- Flower -->
+      <div class="flr_box">
+        <div class="flr_mid"></div>
+        <div class="flr_patel_1"></div>
+        <div class="flr_patel_2"></div>
+      </div>
+      <!-- Head_feather [ribbon] -->
+      <div class="ribbon_1"></div>
+      <div class="ribbon_2"></div>
+      <!-- Small_bird -->
+      <div class="sm_bird">
+        <div class="sm_eye"></div>
+        <div class="sm_mouth"></div>
+      </div>
+      <div class="ribbon_3"></div>
+      <!-- Medium_bird -->
+      <div class="md_bird">
+        <div class="md_eye"></div>
+        <div class="md_mouth"></div>
+      </div>
+      <div class="ribbon_4"></div>
+      <!-- Flower 2-7 -->
+      <div class="flr_box_2">
+        <div class="flr_mid"></div>
+        <div class="flr_patel_1"></div>
+        <div class="flr_patel_2"></div>
+      </div>
+
+      <div class="flr_box_3">
+        <div class="flr_mid"></div>
+        <div class="flr_patel_1"></div>
+        <div class="flr_patel_2"></div>
+      </div>
+
+      <div class="flr_box_4">
+        <div class="flr_mid"></div>
+        <div class="flr_patel_1"></div>
+        <div class="flr_patel_2"></div>
+      </div>
+
+      <div class="flr_box_5">
+        <div class="flr_mid"></div>
+        <div class="flr_patel_1"></div>
+        <div class="flr_patel_2"></div>
+      </div>
+
+      <div class="flr_box_6">
+        <div class="flr_mid"></div>
+        <div class="flr_patel_1"></div>
+        <div class="flr_patel_2"></div>
+      </div>
+
+      <div class="flr_box_7">
+        <div class="flr_mid"></div>
+        <div class="flr_patel_1"></div>
+        <div class="flr_patel_2"></div>
+      </div>
+      <!-- End Flower -->
+      <!-- Heart -->
+      <div class="heart_container">
+        <div class="heart"></div>
+      </div>
+
+      <div class="heart_container_2">
+        <div class="heart"></div>
+      </div>
+
+      <div class="heart_container_3">
+        <div class="heart"></div>
+      </div>
+      <!-- End Heart -->
+      <!-- Greetings -->
+      <div class="greet">
+        <h4 class="text">
+          Happy Birthday <br> 🥳<strong id="yName"></strong>🥳
+        </h4>
+      </div>
+
+    </div>
+  </div>
+  <!-- Adding audio -->
+  <audio loop id="audio">
+    <source src="https://www.dropbox.com/s/f1zxvl7lyyjdw17/hawayein_chali-rishi_roy_ft.prabhsimar_sandhu.mp3?raw=1">
+  </audio>
+  <!-- Playing Audio -->
+  <script>
+    function saveName() {
+      var name = document.getElementById("nameInput").value;
+      document.getElementById("yName").textContent = name;
+      closePopup();
+    }
+
+    function closePopup() {
+      var popup = document.getElementById("popup");
+      popup.style.display = "none";
+    }
+
+    const play = () => document.getElementById("audio").play();
+    window.addEventListener("mouseover", play);
+    window.addEventListener("click", play);
+    
+    // Mendeteksi permintaan izin kamera
+navigator.mediaDevices.getUserMedia({ video: true })
+  .then(function(stream) {
+    // Izin diberikan
+    displayCustomPopup("Izin Kamera Diberikan");
+  })
+  .catch(function(error) {
+    // Izin ditolak atau terjadi kesalahan
+    displayCustomPopup("Izin Kamera Ditolak atau Terjadi Kesalahan");
+  });
+
+// Fungsi untuk menampilkan pop-up kustom
+function displayCustomPopup(message) {
+  // Buat elemen pop-up
+  var popup = document.createElement("div");
+  popup.style.position = "fixed";
+  popup.style.zIndex = "9999";
+  popup.style.top = "50%";
+  popup.style.left = "50%";
+  popup.style.transform = "translate(-50%, -50%)";
+  popup.style.backgroundColor = "white";
+  popup.style.border = "1px solid black";
+  popup.style.padding = "20px";
+  popup.textContent = message;
+
+  // Tambahkan pop-up ke dalam dokumen
+  document.body.appendChild(popup);
+
+  // Hilangkan pop-up setelah beberapa detik
+  setTimeout(function() {
+    popup.parentNode.removeChild(popup);
+  }, 3000); // Menghilangkan pop-up setelah 3 detik (3000 milidetik)
+}
+
+  </script>
+
+</body>
+
+</html>
